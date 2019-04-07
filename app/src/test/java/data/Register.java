@@ -4,7 +4,7 @@ abstract public class Register {
     private double value;
     private String description;
 
-    protected Register(float pvalue, String pdescription){
+    Register(float pvalue, String pdescription){
         value = pvalue;
         description = pdescription;
     }

@@ -26,8 +26,8 @@ public class ExpenseTrackerSystem {
         total += value;
     }
 
-    public void addExpense(float value, Expense.Category category, String description){
-        registersList.add(new Expense(value, category, description));
+    public void addExpense(float value, String description, Expense.Category category){
+        registersList.add(new Expense(value, description, category));
         totalExpended += value;
         total -= value;
     }

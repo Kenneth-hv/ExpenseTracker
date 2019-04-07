@@ -28,8 +28,8 @@ public class ExpenseTracker {
         system.addIncome(value, description);
     }
 
-    public void addExpense(float value, Expense.Category category, String description){
-        system.addExpense(value, category, description);
+    public void addExpense(float value, String description, Expense.Category category){
+        system.addExpense(value, description, category);
     }
 
     public ArrayList<Register> getRegisters(){
