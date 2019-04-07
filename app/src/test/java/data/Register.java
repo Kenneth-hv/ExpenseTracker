@@ -1,6 +1,6 @@
 package data;
 
-abstract class Register {
+abstract public class Register {
     private double value;
     private String description;
 
@@ -26,8 +26,4 @@ abstract class Register {
     void setValue(double value) {
         this.value = value;
     }
-
-
-
-
 }
