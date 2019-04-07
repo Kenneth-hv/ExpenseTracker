@@ -1,4 +1,4 @@
-package data;
+package com.example.expensetracker.data;
 
 import java.util.ArrayList;
 
@@ -18,6 +18,12 @@ public class ExpenseTrackerSystem {
 
     public ArrayList<Register> getRegistersList(){
         return registersList;
+    }
+
+    public String getStringDecimalTotal(){
+        String str = "₡";
+        str += Math.round(total * 100.0) / 100.0;
+        return str;
     }
 
     public void addIncome(float value, String description){

@@ -1,4 +1,4 @@
-package data;
+package com.example.expensetracker.data;
 
 abstract public class Register {
     private double value;
@@ -15,7 +15,7 @@ abstract public class Register {
 
     public String getStringDecimalValue(){
         String str = "₡";
-        str += Math.round(value * 100.0) / 1000;
+        str += Math.round(value * 100.0) / 100.0;
         return str;
     }
 

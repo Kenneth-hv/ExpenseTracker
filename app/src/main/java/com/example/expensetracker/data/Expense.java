@@ -1,4 +1,4 @@
-package data;
+package com.example.expensetracker.data;
 
 public class Expense extends Register {
     public enum Category{

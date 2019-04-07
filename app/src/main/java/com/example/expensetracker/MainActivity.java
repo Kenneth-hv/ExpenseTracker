@@ -5,12 +5,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.expensetracker.controler.ExpenseTracker;
+
+
 public class MainActivity extends AppCompatActivity {
+    private ExpenseTracker expenseTracker;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        expenseTracker = ExpenseTracker.getInstance();
+
     }
 
     public void addExpenseButton(View view){

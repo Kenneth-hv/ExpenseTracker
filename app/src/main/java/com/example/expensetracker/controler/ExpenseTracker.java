@@ -1,10 +1,10 @@
-package controler;
+package com.example.expensetracker.controler;
 
 import java.util.ArrayList;
 
-import data.Expense;
-import data.ExpenseTrackerSystem;
-import data.Register;
+import com.example.expensetracker.data.Expense;
+import com.example.expensetracker.data.ExpenseTrackerSystem;
+import com.example.expensetracker.data.Register;
 
 public class ExpenseTracker {
     private static ExpenseTracker instance;
@@ -16,23 +16,43 @@ public class ExpenseTracker {
         system = new ExpenseTrackerSystem();
     }
 
-    public ExpenseTracker getInstance(){
+    static public ExpenseTracker getInstance(){
         if(instance == null) {
-            return new ExpenseTracker();
+            if(!loadData()) {
+                return new ExpenseTracker();
+            }
         } else {
             return instance;
         }
     }
 
+    static boolean loadData(){
+
+        //TODO: LOAD DATA IMPLEMENTATION
+
+
+        return false;
+    }
+
+    public void saveData(){
+        //TODO: SAVE DATA IMPLEMENTATION
+    }
+
     public void addIncome(float value, String description){
         system.addIncome(value, description);
+        saveData();
     }
 
     public void addExpense(float value, String description, Expense.Category category){
         system.addExpense(value, description, category);
+        saveData();
     }
 
     public ArrayList<Register> getRegisters(){
         return system.getRegistersList();
+    }
+
+    public String getTotalString(){
+        return system.getStringDecimalTotal();
     }
 }
