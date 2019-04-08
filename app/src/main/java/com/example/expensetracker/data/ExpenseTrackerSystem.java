@@ -27,13 +27,13 @@ public class ExpenseTrackerSystem {
     }
 
     public void addIncome(float value, String description){
-        registersList.add(new Income(value, description));
+        registersList.add(0, new Income(value, description));
         totalIncomes += value;
         total += value;
     }
 
     public void addExpense(float value, String description, Expense.Category category){
-        registersList.add(new Expense(value, description, category));
+        registersList.add(0, new Expense(value, description, category));
         totalExpended += value;
         total -= value;
     }
