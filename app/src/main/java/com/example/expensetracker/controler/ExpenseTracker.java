@@ -1,10 +1,15 @@
 package com.example.expensetracker.controler;
 
+import android.content.SharedPreferences;
+
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-import com.example.expensetracker.data.Expense;
+import com.example.expensetracker.MainActivity;
 import com.example.expensetracker.data.ExpenseTrackerSystem;
 import com.example.expensetracker.data.Register;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 public class ExpenseTracker {
     private static ExpenseTracker instance;
@@ -18,10 +23,10 @@ public class ExpenseTracker {
 
     static public ExpenseTracker getInstance(){
         if(instance == null) {
-            if(!loadData()) {
-                return new ExpenseTracker();
+            if(loadData()) {
+               return instance;
             } else {
-                return new ExpenseTracker(); //TODO: CHANGE WHEN LOAD DATA IMPLEMENTED.
+                return new ExpenseTracker();
             }
         } else {
             return instance;
@@ -29,15 +34,27 @@ public class ExpenseTracker {
     }
 
     static boolean loadData(){
+        SharedPreferences sharedPreferences = MainActivity.getSharedPreferences();
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("registers", null);
+        Type type = new TypeToken<ExpenseTracker>() {
+        }.getType();
 
-        //TODO: LOAD DATA IMPLEMENTATION
+        instance = gson.fromJson(json, type);
 
+        if (instance == null)
+            return false;
 
-        return false;
+        return true;
     }
 
     public void saveData(){
-        //TODO: SAVE DATA IMPLEMENTATION
+        SharedPreferences sharedPreferences = MainActivity.getSharedPreferences();
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(instance);
+        editor.putString("registers", json);
+        editor.apply();
     }
 
     public void addIncome(float value, String description){
@@ -45,8 +62,8 @@ public class ExpenseTracker {
         saveData();
     }
 
-    public void addExpense(float value, String description, Expense.Category category){
-        system.addExpense(value, description, category);
+    public void addExpense(float value, String description){
+        system.addExpense(value, description);
         saveData();
     }
 
