@@ -1,12 +1,19 @@
 package com.example.expensetracker.data;
 
-abstract public class Register {
+public class Register {
+    public enum Type{
+        Expense,
+        Income
+
+    }
     private double value;
     private String description;
+    private Type type;
 
-    Register(float pvalue, String pdescription){
+    Register(float pvalue, String pdescription, Type ptype){
         value = pvalue;
         description = pdescription;
+        type = ptype;
     }
 
     public double getValue() {
@@ -25,5 +32,9 @@ abstract public class Register {
 
     void setValue(double value) {
         this.value = value;
+    }
+
+    public Type getType() {
+        return type;
     }
 }

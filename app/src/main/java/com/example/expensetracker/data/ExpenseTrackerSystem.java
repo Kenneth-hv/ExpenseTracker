@@ -27,13 +27,13 @@ public class ExpenseTrackerSystem {
     }
 
     public void addIncome(float value, String description){
-        registersList.add(0, new Income(value, description));
+        registersList.add(0, new Register(value, description, Register.Type.Income));
         totalIncomes += value;
         total += value;
     }
 
-    public void addExpense(float value, String description, Expense.Category category){
-        registersList.add(0, new Expense(value, description, category));
+    public void addExpense(float value, String description){
+        registersList.add(0, new Register(value, description, Register.Type.Expense));
         totalExpended += value;
         total -= value;
     }
@@ -42,7 +42,7 @@ public class ExpenseTrackerSystem {
         totalExpended = 0;
         totalIncomes = 0;
         for (Register register: registersList) {
-            if(register instanceof Income){
+            if(register.getType() == Register.Type.Income){
                 totalIncomes += register.getValue();
             } else {
                 totalExpended += register.getValue();

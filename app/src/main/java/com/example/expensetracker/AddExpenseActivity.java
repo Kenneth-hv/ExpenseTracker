@@ -7,7 +7,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.expensetracker.controler.ExpenseTracker;
-import com.example.expensetracker.data.Expense;
 
 
 public class AddExpenseActivity extends AppCompatActivity {
@@ -28,7 +27,7 @@ public class AddExpenseActivity extends AppCompatActivity {
 
         float value = Float.parseFloat(editText_expense.getText().toString());
         String description = editText_description.getText().toString();
-        ExpenseTracker.getInstance().addExpense(value, description, Expense.Category.OTHER);
+        ExpenseTracker.getInstance().addExpense(value, description);
 
         finish();
     }

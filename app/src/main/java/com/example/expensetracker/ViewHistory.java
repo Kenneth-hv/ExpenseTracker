@@ -10,7 +10,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.expensetracker.controler.ExpenseTracker;
-import com.example.expensetracker.data.Expense;
 import com.example.expensetracker.data.Register;
 
 import java.util.ArrayList;
@@ -56,7 +55,7 @@ public class ViewHistory extends AppCompatActivity {
             TextView text_description = convertView.findViewById(R.id.text_description);
 
 
-            if(registers.get(position) instanceof Expense){
+            if(registers.get(position).getType() == Register.Type.Expense){
                 text_value.setTextColor(Color.parseColor("#ff312d"));
                 text_value.setText("- " + registers.get(position).getStringDecimalValue());
             } else {

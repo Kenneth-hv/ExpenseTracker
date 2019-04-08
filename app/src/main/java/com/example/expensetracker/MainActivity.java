@@ -1,6 +1,8 @@
 package com.example.expensetracker;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,11 +13,14 @@ import com.example.expensetracker.controler.ExpenseTracker;
 
 public class MainActivity extends AppCompatActivity {
     private ExpenseTracker expenseTracker;
+    private static SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        sharedPreferences = getSharedPreferences("tracker", Context.MODE_PRIVATE);
 
         expenseTracker = ExpenseTracker.getInstance();
 
@@ -45,4 +50,7 @@ public class MainActivity extends AppCompatActivity {
         total.setText(expenseTracker.getTotalString());
     }
 
+    public static SharedPreferences getSharedPreferences(){
+        return sharedPreferences;
+    }
 }
