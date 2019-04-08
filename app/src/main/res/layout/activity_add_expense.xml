@@ -12,18 +12,36 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="263dp"
+        android:layout_marginTop="388dp"
         android:layout_marginEnd="100dp"
         android:layout_marginRight="100dp"
         android:ems="10"
         android:gravity="right"
+        android:hint="Monto"
         android:inputType="numberDecimal"
         android:textColor="@android:color/holo_red_dark"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/expenseDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="80dp"
+        android:ems="10"
+        android:hint="Descripción"
+        android:inputType="textShortMessage|textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/expenseInput" />
 
     <Button
         android:id="@+id/button"
@@ -31,13 +49,25 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="130dp"
         android:layout_marginLeft="130dp"
-        android:layout_marginTop="28dp"
         android:layout_marginEnd="130dp"
         android:layout_marginRight="130dp"
         android:onClick="addExpenseButtonClick"
-        android:text="Agregar Ingreso"
+        android:text="Agregar Gasto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/expenseInput" />
+        tools:layout_editor_absoluteY="569dp" />
+
+    <Spinner
+        android:id="@+id/categorySpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="531dp" />
 </android.support.constraint.ConstraintLayout>
