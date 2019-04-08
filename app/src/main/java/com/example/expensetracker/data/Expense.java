@@ -37,5 +37,6 @@ public class Expense extends Register {
             case OTHER:
                 return "Otro";
         }
+        return "NULL";
     }
 }
