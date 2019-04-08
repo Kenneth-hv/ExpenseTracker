@@ -20,6 +20,8 @@ public class ExpenseTracker {
         if(instance == null) {
             if(!loadData()) {
                 return new ExpenseTracker();
+            } else {
+                return new ExpenseTracker(); //TODO: CHANGE WHEN LOAD DATA IMPLEMENTED.
             }
         } else {
             return instance;
