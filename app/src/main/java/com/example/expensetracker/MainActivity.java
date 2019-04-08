@@ -4,13 +4,13 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.expensetracker.controler.ExpenseTracker;
 
 
 public class MainActivity extends AppCompatActivity {
     private ExpenseTracker expenseTracker;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,16 +19,30 @@ public class MainActivity extends AppCompatActivity {
 
         expenseTracker = ExpenseTracker.getInstance();
 
+        updateCurrentTotal();
     }
 
     public void addExpenseButton(View view){
         Intent addExpenseIntent = new Intent(this, AddExpenseActivity.class);
-        startActivity(addExpenseIntent);
+        startActivityForResult(addExpenseIntent,0);
+        updateCurrentTotal();
     }
 
     public void addIncomeButton(View view){
         Intent addIncomeIntent = new Intent(this, AddIncomeActivity.class);
         startActivity(addIncomeIntent);
+        updateCurrentTotal();
+    }
+
+    public void viewHistoryButton(View view){
+        Intent viewHistoryActivity = new Intent(this, ViewHistory.class);
+        startActivityForResult(viewHistoryActivity,0);
+        updateCurrentTotal();
+    }
+
+    private void updateCurrentTotal(){
+        TextView total = findViewById(R.id.totalTextView);
+        total.setText(expenseTracker.getTotalString());
     }
 
 }
