@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -46,12 +47,24 @@ public class ViewHistory extends AppCompatActivity {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
             convertView = getLayoutInflater().inflate(R.layout.activity_view_history_item, null);
             ArrayList<Register> registers = ExpenseTracker.getInstance().getRegisters();
 
             TextView text_value = convertView.findViewById(R.id.text_value);
             TextView text_description = convertView.findViewById(R.id.text_description);
+            Button button = convertView.findViewById(R.id.deleteRegister);
+
+            View.OnClickListener onclicklistener = new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ExpenseTracker.getInstance().deleteRegister(position);
+                    finish();
+                    startActivity(getIntent());
+                }
+            };
+
+            button.setOnClickListener(onclicklistener);
 
 
             if(registers.get(position).getType() == Register.Type.Expense){

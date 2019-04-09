@@ -51,4 +51,8 @@ public class ExpenseTrackerSystem {
         total = totalIncomes - totalExpended;
     }
 
+    public void deleteRegister(int i){
+        registersList.remove(i);
+        updateValues();
+    }
 }

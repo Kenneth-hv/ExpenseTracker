@@ -74,4 +74,9 @@ public class ExpenseTracker {
     public String getTotalString(){
         return system.getStringDecimalTotal();
     }
+
+    public void deleteRegister(int i){
+        system.deleteRegister(i);
+
+    }
 }
