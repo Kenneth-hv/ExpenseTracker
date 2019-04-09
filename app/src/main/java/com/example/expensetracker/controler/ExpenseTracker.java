@@ -77,6 +77,6 @@ public class ExpenseTracker {
 
     public void deleteRegister(int i){
         system.deleteRegister(i);
-
+        saveData();
     }
 }
