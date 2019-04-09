@@ -51,7 +51,6 @@ public class ViewHistory extends AppCompatActivity {
             ArrayList<Register> registers = ExpenseTracker.getInstance().getRegisters();
 
             TextView text_value = convertView.findViewById(R.id.text_value);
-            TextView text_category = convertView.findViewById(R.id.text_category);
             TextView text_description = convertView.findViewById(R.id.text_description);
 
 

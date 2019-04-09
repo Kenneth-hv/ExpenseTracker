@@ -21,9 +21,6 @@ public class AddExpenseActivity extends AppCompatActivity {
 
         EditText editText_expense = findViewById(R.id.expenseInput);
         EditText editText_description = findViewById(R.id.expenseDescription);
-        Spinner categorySpinner = findViewById(R.id.categorySpinner);
-        int category = categorySpinner.getSelectedItemPosition();
-
 
         float value = Float.parseFloat(editText_expense.getText().toString());
         String description = editText_description.getText().toString();

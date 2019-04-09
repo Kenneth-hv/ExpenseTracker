@@ -4,55 +4,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ccffe7"
     android:onClick="viewHistoryButton"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/addExpenseButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginEnd="37dp"
-        android:layout_marginRight="37dp"
-        android:layout_marginBottom="40dp"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#ff312d"
         android:onClick="addExpenseButton"
         android:text="Gasto"
+        android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/addIncomeButton"
         app:layout_constraintHorizontal_bias="0.022"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalTextView" />
 
     <Button
         android:id="@+id/addIncomeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="100dp"
-        android:layout_marginRight="100dp"
-        android:layout_marginBottom="40dp"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="0dp"
+        android:layout_height="53dp"
+        android:background="#53aa33"
         android:onClick="addIncomeButton"
         android:text="Ingreso"
+        android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addExpenseButton" />
 
     <TextView
         android:id="@+id/totalTextView"
         android:layout_width="0dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginRight="100dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="50dp"
         android:background="@color/colorPrimary"
         android:gravity="center|center_horizontal"
+        android:lineSpacingExtra="12sp"
         android:onClick="viewHistoryButton"
         android:padding="5dp"
         android:text="₡0.00"
         android:textSize="26sp"
-        app:layout_constraintBottom_toTopOf="@+id/addExpenseButton"
+        app:layout_constraintBottom_toTopOf="@+id/addIncomeButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/newsPager"
+        android:layout_width="395dp"
+        android:layout_height="302dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/totalTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.556" />
 
 </android.support.constraint.ConstraintLayout>

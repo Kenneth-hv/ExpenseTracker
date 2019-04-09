@@ -21,7 +21,7 @@ public class Register {
     }
 
     public String getStringDecimalValue(){
-        String str = "₡";
+        String str = "";
         str += Math.round(value * 100.0) / 100.0;
         return str;
     }
